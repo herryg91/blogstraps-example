@@ -93,7 +93,7 @@ const SearchModal = (props: { show: boolean,  onClose: () => void, defaultKeywor
           <form method="GET" action={search_url}>
             <Join className="w-full">
               <Input className="join-item w-full" ref={searchInputRef} onLoad={(e) => e.currentTarget.focus()} name="keyword" defaultValue={props.defaultKeyword} placeholder="Add keyword..."/>
-              {props.page > 0 &&  <Input name="page" value={props.page} type="hidden"/>}
+              {/* {props.page > 0 &&  <Input name="page" value={props.page} type="hidden"/>} */}
               <Button type="submit" className="join-item" color="accent">Search</Button>
             </Join>
           </form>

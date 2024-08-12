@@ -3,13 +3,26 @@ import Script from "next/script";
 import MainLayout from "@/components/layouts/main-layout";
 
 const HomePage: NextPage<{ post_slug: string, category_slug: string }> = (param) => {
+  if((process.env.NEXT_PUBLIC_BLOGSTRAPS_LAYOUT || "empty") === "empty") {
+    return <>
+    <Script async src="https://blogstraps.com/embed/blogstraps.min.js"></Script>
+    {
+    param.post_slug !== "" ?
+    <div id="bs-blog" data-key={process.env.NEXT_PUBLIC_BLOGSTRAPS_EMBED_KEY} data-post={param.post_slug}></div> :
+    param.category_slug !== "" ?
+    <div id="bs-blog" data-key={process.env.NEXT_PUBLIC_BLOGSTRAPS_EMBED_KEY} data-category={param.category_slug}></div> :
+    <div id="bs-blog" data-key={process.env.NEXT_PUBLIC_BLOGSTRAPS_EMBED_KEY}></div>
+    }
+  </>
+  }
+  
   return <>
     <Script async src="https://blogstraps.com/embed/blogstraps.min.js"></Script>
     <MainLayout>
       {
       param.post_slug !== "" ?
       <div id="bs-blog" data-key={process.env.NEXT_PUBLIC_BLOGSTRAPS_EMBED_KEY} data-post={param.post_slug}></div> :
-      param.post_slug !== "" ?
+      param.category_slug !== "" ?
       <div id="bs-blog" data-key={process.env.NEXT_PUBLIC_BLOGSTRAPS_EMBED_KEY} data-category={param.category_slug}></div> :
       <div id="bs-blog" data-key={process.env.NEXT_PUBLIC_BLOGSTRAPS_EMBED_KEY}></div>
       }

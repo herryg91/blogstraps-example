@@ -1,8 +1,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { Button, Input, Join, Link, Menu, Modal, Navbar } from "react-daisyui";
 import Image from "next/image";
-import ImageLogo from '@/assets/images/logo-rect.svg';
-import ImageLogoSquare from '@/assets/images/logo.svg';
+import ImageLogoSquare from '@/assets/images/logo.png';
 import { HiOutlineSearchCircle, HiSearch, HiX } from "react-icons/hi";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useFetch } from "@/pkg/hook/useFetch";
@@ -74,7 +73,7 @@ const MainLayout = (props :{children? :ReactNode}) => {
         <div className="flex flex-col gap-y-0 lg:col-span-4 md:col-span-2 col-span-2">
           <a href="http://blogstraps.com" rel="dofollow" className="p-2 rounded-xl hover:shadow w-fit">
             <div className="ml-[-0.5rem]">
-              <Image src={ImageLogo} alt="logo blogstraps" height={40}  />
+              <Image src={ImageLogoSquare} alt="logo blogstraps" height={40}  />
             </div>
             <p className="text-xs mt-2">Copyright © {(new Date()).getFullYear()} - Blogstraps</p>
           </a>

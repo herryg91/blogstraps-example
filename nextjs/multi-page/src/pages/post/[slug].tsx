@@ -6,7 +6,10 @@ const PostPage: NextPage<{ post_slug: string }> = (param) => {
   return <>
     <Script async src="https://blogstraps.com/embed/blogstraps.min.js"></Script>
     <MainLayout>
-      <div id="bs-blog" data-key={process.env.NEXT_PUBLIC_BLOGSTRAPS_EMBED_KEY} data-post={param.post_slug}></div> 
+      <div id="bs-blog" 
+        data-key={process.env.NEXT_PUBLIC_BLOGSTRAPS_EMBED_KEY} 
+        data-post={param.post_slug}>
+      </div> 
     </MainLayout>
   </>
 }
@@ -17,3 +20,4 @@ export const getServerSideProps: GetServerSideProps<{ post_slug: string }> = asy
   const post_slug = context.params?.slug?.toString() ?? ""
   return { props: { post_slug: post_slug } }
 }
+
